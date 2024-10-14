@@ -5,14 +5,15 @@ import (
 )
 
 func Sleep(seconds int) {
-	start := time.Now().Second()
+	start := time.Now()
+
 	for {
-		if time.Now().Second()-start >= seconds {
+		if time.Since(start).Seconds() >= float64(seconds) {
 			return
 		}
 	}
 }
 
 func main() {
-	Sleep(3)
+	Sleep(5)
 }
